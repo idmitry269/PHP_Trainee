@@ -1,7 +1,9 @@
 .navbar-nav .nav-item{
     margin-left: 50px;
 }
-
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: #fff;
+}
 .gradient-top{
     height: 150px;
     background: -webkit-linear-gradient(180deg, rgb(0, 123, 255) 20%, rgb(255, 255, 255) 80%);
@@ -48,9 +50,19 @@
 footer{
     padding: 0;
 }
-footer a{
+footer .nav-link{
+    padding: 8px 24px 8px 0;
     color:rgba(255, 255, 255, .5);
 }
 footer a:hover{
     color:#fff;
+}
+form{
+    padding-left: 50px;
+}
+.form-group input.form-control{
+    width:200px;
+}
+form h1{
+    padding-bottom: 30px;
 }
