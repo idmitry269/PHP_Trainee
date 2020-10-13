@@ -16,8 +16,12 @@
 <main role ="main" class="flex-shrink-0">
     <div class="container">
         <div class="row">
-            <?php include 'navigation.php';?>
-            <?php include($content);?>
+            <div class="col-sm-3">
+                <?php include 'navigation.php';?>
+            </div>
+            <div class="col-sm-9">
+                <?php include($content);?>
+            </div>
         </div>
     </div>
 </main>
