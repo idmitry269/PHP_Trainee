@@ -1,5 +1,5 @@
 <form>
-    <h1> Регистрация </h1>
+    <p class = "register"> Регистрация </p>
     <div class="form-group">
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Электронный адрес">
     </div>
@@ -14,7 +14,7 @@
     </div>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label">С <a href="#">пользовательским соглашением</a> и <a href="#">правилами</a> сайта ознакомлен.</label>
+        <label class="form-check-label">С <a href="#">пользовательским соглашением</a> ознакомлен.</label>
     </div>
     <button type="submit" class="btn btn-primary">Регистрация</button>
 </form>

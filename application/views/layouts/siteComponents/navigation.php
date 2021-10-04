@@ -1,7 +1,10 @@
 <div class="navigation">
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link" href="../news.php">Новости</a>
+            <a class="nav-link" href="/posts/all">Всё</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" >Новости</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" >Юмор</a>

@@ -1,5 +1,5 @@
 <form>
-    <h1> Авторизация </h1>
+    <p class = "login"> Авторизация </p>
     <div class="form-group">
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Электронный адрес">
     </div>

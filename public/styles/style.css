@@ -5,7 +5,7 @@
     color: #fff;
 }
 .gradient-top{
-    height: 150px;
+    height: 50px;
     background: -webkit-linear-gradient(180deg, rgb(0, 123, 255) 20%, rgb(255, 255, 255) 80%);
     background: -moz-linear-gradient(180deg, rgb(0, 123, 255) 20%, rgb(255, 255, 255) 80%);
     background: linear-gradient(180deg, rgb(0, 123, 255) 20%, rgb(255, 255, 255) 80%);
@@ -40,7 +40,7 @@
     font-weight: bold;
 }
 .gradient-bottom{
-    height: 150px;
+    height:  50px;
     background: -webkit-linear-gradient(180deg, rgb(255, 255, 255) 10%, rgb(52, 58, 64) 80%);
     background: -moz-linear-gradient(180deg, rgb(255, 255, 255) 10%, rgb(52, 58, 64) 80%);
     background: linear-gradient(180deg, rgb(255, 255, 255) 10%, rgb(52, 58, 64) 80%);
@@ -59,7 +59,7 @@ form{
     padding-left: 50px;
 }
 .form-group input.form-control{
-    width:200px;
+    width:300px;
 }
 form h1{
     padding-bottom: 30px;
@@ -73,4 +73,18 @@ form h1{
 }
 .card .btn{
     border-radius: 18px;
+}
+html {
+    width:100vw;
+    overflow-x:hidden;
+}
+nav.navbar{
+    padding: 0;
+}
+.login,.register {
+    padding-top: 15px;
+    font-size: 30px;
+}
+div.card-body {
+    padding: 25px 0 25px 0;
 }

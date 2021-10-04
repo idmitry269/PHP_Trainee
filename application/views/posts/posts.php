@@ -1,13 +1,13 @@
 <?php
-$posts = array(
+return array(
+
     1 => $post1 = array (
         'post_id' => 1,
         'post_title' => 'Путешествия',
         'post_slug' => 'travel',
         'post_content' => '<div class="card">
-           <img src="siteComponents/img/travel_01.jpg" class="card-img-top" alt="...">
+           <img src="/public/images/travel_01.jpg" class="card-img-top" alt="...">
            <div class="card-body">
-               <h5 class="card-title">Путешествия</h5>
                <p class="card-text">Some quick example text to build on the
                 card title and make up the bulk of the card"s content.</p>
                <a href="#" class="btn btn-primary">Оставить комментарий</a>
@@ -19,7 +19,6 @@ $posts = array(
         'post_slug' => 'stories',
         'post_content' => '<div class="card">
            <div class="card-body">
-               <h5 class="card-title">Истории</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
                    elit. Mauris pulvinar ex ac ex varius lacinia.
                    Etiam ligula dui, tincidunt in consequat nec, condimentum in metus.
@@ -54,14 +53,15 @@ $posts = array(
                <a href="#" class="btn btn-primary">Оставить комментарий</a>
            </div>
        </div>'
-    ), $post2 = array (
+    ),
+
+    $post2 = array (
         'post_id' => 3,
         'post_title' => 'Первые впечатления от Baldur’s Gate 3. Живая классика',
-        'post_slug' => 'stories',
-        'post_content' => '       <div class="card">
-           <img src="siteComponents/img/games_01.jpg" class="card-img-top" alt="...">
+        'post_slug' => 'games',
+        'post_content' => '<div class="card">
+           <img src="/public/images/games_01.jpg" class="card-img-top" alt="...">
            <div class="card-body">
-               <h5 class="card-title">Первые впечатления от Baldur’s Gate 3. Живая классика</h5>
                <p class="card-text">Когда Larian Studios объявила, что её следующей игрой будет 
                продолжение Baldur’s Gate,многие встретили анонс с осторожным оптимизмом. С одной
                стороны, репутация и портфолио студии говорят сами за себя: кто, как не авторы 
