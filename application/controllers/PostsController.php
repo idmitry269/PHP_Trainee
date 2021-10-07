@@ -3,6 +3,7 @@
 namespace application\controllers;
 
 use application\core\Controller;
+use application\lib\Db;
 
 class PostsController extends Controller
 {
@@ -10,7 +11,7 @@ class PostsController extends Controller
     {
         $result = $this->model->getPosts();
         $vars = [
-            'all' => $result,
+            'posts' => $result,
         ];
         $this->view->render('Все посты', $vars);
     }

@@ -2,12 +2,14 @@
 
 namespace application\core;
 
+use application\lib\Db;
+
 abstract class Model
 {
     public $db;
 
     public function __construct()
     {
-        $this->db = require 'application/views/posts/posts.php';
+        $this->db = new Db();
     }
 }
