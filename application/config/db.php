@@ -3,6 +3,6 @@
 return [
     'host' => 'localhost',
     'name' => 'phpdev',
-    'user' => 'Bellato',
-    'password' => 'slbI2mDv',
+    'user' => 'root',
+    'password' => '154fa702ea49ee4',
 ];
