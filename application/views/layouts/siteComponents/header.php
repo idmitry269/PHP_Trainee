@@ -7,13 +7,24 @@
         <div class="collapse navbar-collapse" id="navbarsExample03">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/account/login">Авторизация</a>
+        <?php if (!isset($_SESSION['authorize']['id'])) {
+            echo"<a class=\"nav-link\" href=\"/account/login\">Авторизация</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/account/register">Регистрация</a>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"/account/register\">Регистрация</a>
+                ";
+        }
+        elseif (isset($_SESSION['authorize']['id'])) {
+            echo"<a class=\"nav-link\" href=\"/user/profile\">Имя залогиненного</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"/\">Ссылка на выход</a>
+                ";
+        }?>
                 </li>
             </ul>
         </div>
+
     </div>
 </nav>
 <div class="gradient-top"></div>

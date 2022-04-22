@@ -1,7 +1,13 @@
 <div class="navigation">
-    <ul class="nav flex-column">
+    <ul class="nav flex-column nowrap">
+        <?php if (isset($_SESSION['authorize']['id'])) {
+        echo "<li class=\"nav-item\">
+            <a class=\"nav-link\" href=\"/user/profile\">Ваш профиль</a>
+        </li>";
+        }
+        ?>
         <li class="nav-item">
-            <a class="nav-link" href="/posts/all">Всё</a>
+            <a class="nav-link" href="/posts/all">Все посты</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" >Новости</a>

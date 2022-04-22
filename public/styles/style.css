@@ -16,6 +16,10 @@
 .content{
     padding-top: 15px;
 }
+
+.nav.flex-column.nowrap {
+    flex-wrap: nowrap;
+}
 .nav.flex-column a{
     max-width: fit-content;
     text-transform: uppercase;

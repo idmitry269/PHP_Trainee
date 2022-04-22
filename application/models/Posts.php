@@ -13,3 +13,4 @@ class Posts extends Model
         return $result;
     }
 }
+
