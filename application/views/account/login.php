@@ -1,10 +1,10 @@
 <form action ="/account/login" method="post">
     <p class = "login"> Авторизация </p>
     <div class="form-group">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Электронный адрес" name="email">
+        <input type="text" name="login" class="form-control" id="login"  placeholder="Логин">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль" name="password">
+        <input type="password" name="password" class="form-control" id="password" placeholder="Пароль">
     </div>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">

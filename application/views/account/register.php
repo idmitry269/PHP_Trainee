@@ -10,9 +10,6 @@
         <input type="password" name="password" class="form-control" id="password" placeholder="Пароль">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control"  placeholder="Повторить пароль">
-    </div>
-    <div class="form-group">
         <input type="text" name="username" class="form-control" id="username" placeholder="Имя">
     </div>
     <div class="form-group">

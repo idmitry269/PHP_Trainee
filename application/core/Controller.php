@@ -13,7 +13,6 @@ abstract class Controller
     public function __construct($route)
     {
         $this->route = $route;
-//        $_SESSION['authorize']['id'] = 1;
         if (!$this->checkAcl()) {
             View::errorCode(403);
         }
@@ -36,10 +35,10 @@ abstract class Controller
         if ($this->isAcl('all')) {
             return true;
         }
-        elseif (isset($_SESSION['authorize']['id']) and $this->isAcl('authorize')) {
+        elseif (isset($_SESSION['account']['id']) and $this->isAcl('authorize')) {
             return true;
         }
-        elseif (!isset($_SESSION['authorize']['id']) and $this->isAcl('guest')) {
+        elseif (!isset($_SESSION['account']['id']) and $this->isAcl('guest')) {
             return true;
         }
         elseif (isset($_SESSION['admin']) and $this->isAcl('admin')) {

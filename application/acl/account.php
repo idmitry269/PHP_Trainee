@@ -4,7 +4,7 @@ return[
         //
     ],
     'authorize'=>[
-        //
+        'logout',
     ],
     'guest'=>[
         'login',

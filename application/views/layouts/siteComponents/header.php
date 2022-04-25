@@ -7,18 +7,18 @@
         <div class="collapse navbar-collapse" id="navbarsExample03">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-        <?php if (!isset($_SESSION['authorize']['id'])) {
+        <?php if (!isset($_SESSION['account']['id'])) {
             echo"<a class=\"nav-link\" href=\"/account/login\">Авторизация</a>
                 </li>
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"/account/register\">Регистрация</a>
                 ";
         }
-        elseif (isset($_SESSION['authorize']['id'])) {
-            echo"<a class=\"nav-link\" href=\"/user/profile\">Имя залогиненного</a>
+        elseif (isset($_SESSION['account']['id'])) {
+            echo"<a class=\"nav-link\" href=\"/user/profile\">".$_SESSION['account']['surname'].' '.$_SESSION['account']['username']."</a>
                 </li>
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"/\">Ссылка на выход</a>
+                    <a class=\"nav-link\" href=\"/account/logout\">Выход</a>
                 ";
         }?>
                 </li>

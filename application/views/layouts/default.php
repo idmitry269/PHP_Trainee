@@ -3,6 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="/public/scripts/jquery-3.5.1.min.js" ></script>
+    <script src="/public/scripts/popper.min.js"></script>
+    <script src="/public/scripts/bootstrap.min.js"></script>
+    <script src="/public/scripts/form.js"></script>
     <link rel="stylesheet" href="/public/styles/bootstrap.min.css" >
     <link rel="stylesheet" href="/public/styles/style.css">
     <title><?= $title;?></title>
@@ -29,9 +33,5 @@
 <footer class="footer mt-auto">
     <?php include 'siteComponents/footer.php';?>
 </footer>
-
-<script src="/public/scripts/jquery-3.5.1.min.js" ></script>
-<script src="/public/scripts/popper.min.js"></script>
-<script src="/public/scripts/bootstrap.min.js"></script>
 </body>
 </html>
