@@ -24,6 +24,10 @@ return [
         'action' => 'logout',
     ],
 
+    'account/profile' => [
+        'controller' => 'account',
+        'action' => 'profile',
+    ],
     'posts/all' =>
         [
         'controller' => 'posts',

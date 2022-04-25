@@ -83,7 +83,7 @@ html {
     overflow-x:hidden;
 }
 nav.navbar{
-    padding: 0;
+    padding: 10px;
 }
 .login,.register {
     padding-top: 15px;
@@ -91,4 +91,11 @@ nav.navbar{
 }
 div.card-body {
     padding: 25px 0 25px 0;
+}
+.avatar {
+    border-radius: 20px;
+}
+input#avatar.form-control {
+    padding: 0;
+    height: 32px;
 }

@@ -3,9 +3,12 @@
 namespace application\models;
 
 use application\core\Model;
+use Imagick;
 
 class Account extends Model
 {
+
+    public $error;
 
     public function validate($input, $post) {
         $rules = [
@@ -88,7 +91,27 @@ class Account extends Model
         $_SESSION['account'] = $data[0];
     }
 
-
+    public function save($post, $avatar)
+    {
+        $params = [
+            'id' => $_SESSION['account']['id'],
+            'email' => $post['email'],
+            'username' => $post['username'],
+            'surname' => $post['surname'],
+            'avatar' => $avatar,
+        ];
+        if (!empty($post['password'])) {
+            $params['password'] = password_hash($post['password'], PASSWORD_BCRYPT);
+            $sql = ',password = :password';
+        }
+        else {
+            $sql = '';
+        }
+        foreach ($params as $key => $val) {
+            $_SESSION['account'][$key] = $val;
+        }
+        $this->db->query('UPDATE users SET email = :email, username = :username, surname = :surname, avatar = :avatar'.$sql.' WHERE id = :id', $params);
+    }
 
 }
 

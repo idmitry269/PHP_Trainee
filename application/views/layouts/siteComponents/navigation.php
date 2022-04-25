@@ -2,7 +2,7 @@
     <ul class="nav flex-column nowrap">
         <?php if (isset($_SESSION['account']['id'])) {
         echo "<li class=\"nav-item\">
-            <a class=\"nav-link\" href=\"/user/profile\">Ваш профиль</a>
+            <a class=\"nav-link\" href=\"/account/profile\">Ваш профиль</a>
         </li>";
         }
         ?>

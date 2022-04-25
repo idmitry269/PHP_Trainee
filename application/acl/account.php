@@ -5,6 +5,7 @@ return[
     ],
     'authorize'=>[
         'logout',
+        'profile',
     ],
     'guest'=>[
         'login',
