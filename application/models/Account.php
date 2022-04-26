@@ -3,7 +3,6 @@
 namespace application\models;
 
 use application\core\Model;
-use Imagick;
 
 class Account extends Model
 {
@@ -60,7 +59,7 @@ class Account extends Model
         return true;
     }
 
-    public function register($post)
+    public function register($post, $avatar)
     {
         $params = [
             'login' => $post['login'],
@@ -69,7 +68,15 @@ class Account extends Model
             'username' => $post['username'],
             'surname' => $post['surname'],
         ];
-           $this->db->query('INSERT INTO users (login, email, password, username, surname) VALUES (:login, :email, :password, :username, :surname)', $params);
+        if (!empty($avatar)) {
+            $params['avatar'] = $avatar;
+            $sqlAvaIns = ', avatar';
+            $sqlAvaVal = ', :avatar';
+        }else {
+            $sqlAvaIns = '';
+            $sqlAvaVal = '';
+        }
+        $this->db->query('INSERT INTO users (login, email, password, username, surname'.$sqlAvaIns.') VALUES (:login, :email, :password, :username, :surname'.$sqlAvaVal.')', $params);
     }
 
     public function checkData($login, $password) {
@@ -98,19 +105,23 @@ class Account extends Model
             'email' => $post['email'],
             'username' => $post['username'],
             'surname' => $post['surname'],
-            'avatar' => $avatar,
         ];
         if (!empty($post['password'])) {
             $params['password'] = password_hash($post['password'], PASSWORD_BCRYPT);
-            $sql = ',password = :password';
+            $sqlPass = ',password = :password';
+        }else {
+            $sqlPass = '';
         }
-        else {
-            $sql = '';
+        if (!empty($avatar)) {
+            $params['avatar'] = $avatar;
+            $sqlAva = ', avatar = :avatar';
+        }else {
+            $sqlAva = '';
         }
         foreach ($params as $key => $val) {
             $_SESSION['account'][$key] = $val;
         }
-        $this->db->query('UPDATE users SET email = :email, username = :username, surname = :surname, avatar = :avatar'.$sql.' WHERE id = :id', $params);
+        $this->db->query('UPDATE users SET email = :email, username = :username, surname = :surname'.$sqlAva.$sqlPass.' WHERE id = :id', $params);
     }
 
 }

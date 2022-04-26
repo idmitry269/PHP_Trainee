@@ -12,9 +12,9 @@ $(document).ready(function() {
             success: function(result) {
                 json = jQuery.parseJSON(result);
                 if (json.url) {
-                    window.location.href = '/' + json.url;
+                    location.href = json.url;
                 } else {
-                    window.alert(json.status + ' - ' + json.message);
+                   alert(json.message);
                 }
             },
         });

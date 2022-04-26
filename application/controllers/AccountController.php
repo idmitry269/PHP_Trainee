@@ -7,6 +7,7 @@ use application\models\Account;
 
 class AccountController extends Controller
 {
+
     public function loginAction()
     {
         if (!empty($_POST)) {
@@ -25,7 +26,6 @@ class AccountController extends Controller
     public function registerAction()
     {
         if (!empty($_POST)){
-            if (!empty($_POST)) {
                 if (!$this->model->validate(['email', 'login', 'password', 'username', 'surname'], $_POST)) {
                     $this->view->message('error', $this->model->error);
                 }
@@ -35,9 +35,16 @@ class AccountController extends Controller
                 elseif (!$this->model->checkLoginExists($_POST['login'])) {
                     $this->view->message('error', $this->model->error);
                 }
-                $this->model->register($_POST);
+                if ($_FILES['avatar']['name'] !== '') {
+                    $avatar = $_FILES['avatar'];
+                    $name = $_POST['login'].'_avatar.jpg';
+                    if (!move_uploaded_file($avatar['tmp_name'], 'public/avatars/'.$name)) {
+                        $this->view->message('error', 'Не удалось загрузить изображение');
+                    }
+                }
+                $this->model->register($_POST, $name);
                 $this->view->message('success', 'Регистрация завершена');
-            }
+
         }
         $this->view->render('Регистрация');
     }
@@ -65,11 +72,11 @@ class AccountController extends Controller
                 $avatar = $_FILES['avatar'];
                 $name = $_SESSION['account']['login'].'_avatar.jpg';
                 if (!move_uploaded_file($avatar['tmp_name'], 'public/avatars/'.$name)) {
-                    $this->view->message('error', 'Image download error');
+                    $this->view->message('error', 'Не удалось загрузить изображение');
                 }
             }
             $this->model->save($_POST, $name);
-            $this->view->message('success', 'Сохранено');
+            $this->view->message('success', 'Изменения сохранены');
         }
         $this->view->render('Профиль');
     }
