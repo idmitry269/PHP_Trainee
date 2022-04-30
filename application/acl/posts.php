@@ -1,16 +1,16 @@
 <?php
+
 return[
-    'all'=>[
+    'all' => [
         'all',
     ],
-    'authorize'=>[
+    'authorize' => [
         //
     ],
-    'guest'=>[
+    'guest' => [
         //
     ],
-    'admin'=>[
+    'admin' => [
         //
     ],
-
 ];

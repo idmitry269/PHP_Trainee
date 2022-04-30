@@ -1,18 +1,18 @@
 <?php
+
 return[
-    'all'=>[
+    'all' => [
         //
     ],
-    'authorize'=>[
+    'authorize' => [
         'logout',
         'profile',
     ],
-    'guest'=>[
+    'guest' => [
         'login',
         'register',
     ],
-    'admin'=>[
+    'admin' => [
         //
     ],
-
-    ];
+];

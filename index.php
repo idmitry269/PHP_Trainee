@@ -8,7 +8,7 @@ use application\core\Router;
 
 
 spl_autoload_register(function ($class) {
-    $file_path = str_replace('\\', '/', $class.'.php');
+    $file_path = str_replace('\\', '/', $class . '.php');
     if (file_exists($file_path)) {
         require $file_path;
     };

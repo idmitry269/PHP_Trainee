@@ -6,10 +6,10 @@ use application\core\Model;
 
 class Account extends Model
 {
-
     public $error;
 
-    public function validate($input, $post) {
+    public function validate($input, $post): bool
+    {
         $rules = [
             'login' => [
                 'pattern' => '#^[a-zA-Z0-9]{3,15}$#',
@@ -41,14 +41,16 @@ class Account extends Model
         return true;
     }
 
-    public function checkEmailExists($email) {
+    public function checkEmailExists($email)
+    {
         $params = [
             'email' => $email,
         ];
         return $this->db->column('SELECT id FROM users WHERE email = :email', $params);
     }
 
-    public function checkLoginExists($login) {
+    public function checkLoginExists($login): bool
+    {
         $params = [
             'login' => $login,
         ];
@@ -72,14 +74,15 @@ class Account extends Model
             $params['avatar'] = $avatar;
             $sqlAvaIns = ', avatar';
             $sqlAvaVal = ', :avatar';
-        }else {
+        } else {
             $sqlAvaIns = '';
             $sqlAvaVal = '';
         }
-        $this->db->query('INSERT INTO users (login, email, password, username, surname'.$sqlAvaIns.') VALUES (:login, :email, :password, :username, :surname'.$sqlAvaVal.')', $params);
+        $this->db->query('INSERT INTO users (login, email, password, username, surname' . $sqlAvaIns . ') VALUES (:login, :email, :password, :username, :surname' . $sqlAvaVal . ')', $params);
     }
 
-    public function checkData($login, $password) {
+    public function checkData($login, $password): bool
+    {
         $params = [
             'login' => $login,
         ];
@@ -90,7 +93,8 @@ class Account extends Model
         return true;
     }
 
-    public function login($login) {
+    public function login($login)
+    {
         $params = [
             'login' => $login,
         ];
@@ -109,20 +113,18 @@ class Account extends Model
         if (!empty($post['password'])) {
             $params['password'] = password_hash($post['password'], PASSWORD_BCRYPT);
             $sqlPass = ',password = :password';
-        }else {
+        } else {
             $sqlPass = '';
         }
         if (!empty($avatar)) {
             $params['avatar'] = $avatar;
             $sqlAva = ', avatar = :avatar';
-        }else {
+        } else {
             $sqlAva = '';
         }
         foreach ($params as $key => $val) {
             $_SESSION['account'][$key] = $val;
         }
-        $this->db->query('UPDATE users SET email = :email, username = :username, surname = :surname'.$sqlAva.$sqlPass.' WHERE id = :id', $params);
+        $this->db->query('UPDATE users SET email = :email, username = :username, surname = :surname' . $sqlAva . $sqlPass . ' WHERE id = :id', $params);
     }
-
 }
-

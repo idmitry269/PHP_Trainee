@@ -18,11 +18,11 @@ class Router
 
     public function add($route, $params)
     {
-        $route = '#^'.$route.'$#';
+        $route = '#^' . $route . '$#';
         $this->routes[$route] = $params;
     }
 
-    public function match()
+    public function match(): bool
     {
         $url = trim($_SERVER['REQUEST_URI'], '/');
         foreach ($this->routes as $route => $params) {
@@ -37,9 +37,9 @@ class Router
     public function run()
     {
         if ($this->match()) {
-            $file_path = 'application\controllers\\'.ucfirst($this->params['controller']).'Controller';
+            $file_path = 'application\controllers\\' . ucfirst($this->params['controller']) . 'Controller';
             if (class_exists($file_path)) {
-                $action = $this->params['action'].'Action';
+                $action = $this->params['action'] . 'Action';
                 if (method_exists($file_path, $action)) {
                     $controller = new $file_path($this->params);
                     $controller->$action();
@@ -53,5 +53,4 @@ class Router
             View::errorCode(404);
         }
     }
-
 }
