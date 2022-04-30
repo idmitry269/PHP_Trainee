@@ -8,6 +8,8 @@ use application\models\Account;
 class AccountController extends Controller
 {
 
+    public $avaName;
+
     public function loginAction()
     {
         if (!empty($_POST)) {
@@ -37,12 +39,12 @@ class AccountController extends Controller
                 }
                 if ($_FILES['avatar']['name'] !== '') {
                     $avatar = $_FILES['avatar'];
-                    $name = $_POST['login'].'_avatar.jpg';
-                    if (!move_uploaded_file($avatar['tmp_name'], 'public/avatars/'.$name)) {
+                    $this->avaName = $_POST['login'].'_avatar.jpg';
+                    if (!move_uploaded_file($avatar['tmp_name'], 'public/avatars/'.$this->avaName)) {
                         $this->view->message('error', 'Не удалось загрузить изображение');
                     }
                 }
-                $this->model->register($_POST, $name);
+                $this->model->register($_POST, $this->avaName);
                 $this->view->message('success', 'Регистрация завершена');
 
         }
@@ -70,12 +72,12 @@ class AccountController extends Controller
             }
             if ($_FILES['avatar']['name'] !== '') {
                 $avatar = $_FILES['avatar'];
-                $name = $_SESSION['account']['login'].'_avatar.jpg';
-                if (!move_uploaded_file($avatar['tmp_name'], 'public/avatars/'.$name)) {
+                $this->avaName = $_SESSION['account']['login'].'_avatar.jpg';
+                if (!move_uploaded_file($avatar['tmp_name'], 'public/avatars/'.$this->avaName)) {
                     $this->view->message('error', 'Не удалось загрузить изображение');
                 }
             }
-            $this->model->save($_POST, $name);
+            $this->model->save($_POST, $this->avaName);
             $this->view->message('success', 'Изменения сохранены');
         }
         $this->view->render('Профиль');
