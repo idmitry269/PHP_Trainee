@@ -13,23 +13,28 @@
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"/account/register\">Регистрация</a>
                 ";
-        } else{if (file_exists('public/avatars/'.$_SESSION['account']['login'].'_avatar.jpg'))
-            {echo "<a class=\"nav-link\" href=\"/account/profile\">".$_SESSION['account']['surname'].' '.$_SESSION['account']['username']."</a>
+        } else {
+            if (file_exists('public/avatars/' . $_SESSION['account']['login'] . '_avatar.jpg')) {
+                echo "<a class=\"nav-link\" href=\"/account/profile\">" . $_SESSION['account']['surname'] . ' ' . $_SESSION['account']['username'] . "</a>
                 </li>
                 <li>
-                    <img class=\"avatar\"  src=\"/public/avatars/".$_SESSION['account']['avatar']."\" width=\"40\" height=\"40\" alt=\"Аватар\" >
+                    <img class=\"avatar\"  src=\"/public/avatars/" . $_SESSION['account']['avatar'] . "\" width=\"40\" height=\"40\" alt=\"Аватар\" >
                 </li>
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"/account/logout\">Выход</a>
-                ";} else {echo "<a class=\"nav-link\" href=\"/account/profile\">".$_SESSION['account']['surname'].' '.$_SESSION['account']['username']."</a>
+                ";
+            } else {
+                echo "<a class=\"nav-link\" href=\"/account/profile\">" . $_SESSION['account']['surname'] . " " . $_SESSION['account']['username'] . "</a>
                 </li>
                 <li>
                     <img class=\"avatar\"  src=\"/public/avatars/default.jpg\" width=\"40\" height=\"40\" alt=\"Аватар\" >
                 </li>
                 <li class=\"nav-item\">
                     <a class=\"nav-link\" href=\"/account/logout\">Выход</a>
-                ";};
-        }?>
+                ";
+            };
+        }
+        ?>
                 </li>
             </ul>
         </div>
