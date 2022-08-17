@@ -3,9 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="/public/scripts/jquery.js" ></script>
-    <script src="/public/scripts/bootstrap.bundle.js"></script>
-    <script src="/public/scripts/form.js"></script>
     <link rel="stylesheet" href="/public/styles/bootstrap.min.css" >
     <link rel="stylesheet" href="/public/styles/style.css">
     <title><?= $title;?></title>
@@ -32,5 +29,8 @@
 <footer class="footer mt-auto">
     <?php include 'siteComponents/footer.php';?>
 </footer>
+<script src="/public/scripts/jquery.js"></script>
+<script src="/public/scripts/bootstrap.bundle.js"></script>
+<script src="/public/scripts/form.js"></script>
 </body>
 </html>
